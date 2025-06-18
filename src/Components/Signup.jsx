@@ -1,17 +1,22 @@
 import React from "react";
-import notebookImage from "../Image.jpeg"; // Make sure this is correct
-import { Link } from "react-router-dom";
-
+import { Link, useNavigate } from "react-router-dom";
+import notebookImage from "../Image.jpeg"; // Make sure the image is correctly placed in /src
 
 const Signup = () => {
+  const navigate = useNavigate(); // Hook for navigation
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // You can add form validation or API logic here
+    navigate("/home"); // Redirect to home page
+  };
+
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center p-6">
       <div className="bg-white p-6 md:p-8 rounded-xl shadow-lg max-w-5xl w-full flex flex-col md:flex-row">
         {/* Left Section */}
         <div className="flex-1 flex justify-center items-center">
-          <div
-            className="w-[350px] h-[350px] md:w-[400px] md:h-[400px] bg-[#d2d2d7] rounded-xl flex flex-col justify-center items-center text-center p-4"
-          >
+          <div className="w-[350px] h-[350px] md:w-[400px] md:h-[400px] bg-[#d2d2d7] rounded-xl flex flex-col justify-center items-center text-center p-4">
             <h1 className="text-xl md:text-2xl font-bold text-gray-800 mb-2">
               Ready to plan your next Event?
             </h1>
@@ -31,12 +36,12 @@ const Signup = () => {
 
         {/* Right Section */}
         <div className="flex-1 bg-gray-50 p-6 rounded-xl mt-6 md:mt-0">
-         <p className="text-right text-sm text-gray-600">
-  Already a member?{" "}
-  <Link to="/login" className="text-blue-600 hover:underline">
-    Sign in
-  </Link>
-</p>
+          <p className="text-right text-sm text-gray-600">
+            Already a member?{" "}
+            <Link to="/login" className="text-blue-600 hover:underline">
+              Sign in
+            </Link>
+          </p>
           <h2 className="text-lg font-semibold text-gray-800 mb-1">
             Get started for free
           </h2>
@@ -44,26 +49,30 @@ const Signup = () => {
             Enjoy 14 days of full access. Cancel anytime.
           </p>
 
-          <form className="space-y-3">
+          <form onSubmit={handleSubmit} className="space-y-3">
             <input
               type="text"
               placeholder="Your full name"
               className="w-full border rounded-md px-4 py-2 text-sm focus:outline-none"
+              required
             />
             <input
               type="text"
               placeholder="Your unique username"
               className="w-full border rounded-md px-4 py-2 text-sm focus:outline-none"
+              required
             />
             <input
               type="password"
               placeholder="Create a password"
               className="w-full border rounded-md px-4 py-2 text-sm focus:outline-none"
+              required
             />
             <input
               type="password"
               placeholder="Confirm password"
               className="w-full border rounded-md px-4 py-2 text-sm focus:outline-none"
+              required
             />
             <button
               type="submit"
