@@ -13,7 +13,7 @@ const Signup = () => {
             className="w-[350px] h-[350px] md:w-[400px] md:h-[400px] bg-[#d2d2d7] rounded-xl flex flex-col justify-center items-center text-center p-4"
           >
             <h1 className="text-xl md:text-2xl font-bold text-gray-800 mb-2">
-              Ready to plan your next event?
+              Ready to plan your next Event?
             </h1>
             <p className="text-gray-700 text-sm mb-4">
               Discover tools that simplify event management!
